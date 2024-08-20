@@ -1,0 +1,30 @@
+﻿@page "{id:int}"
+@model ChatPDFCom.Pages.Chats.ChatModel
+@{
+    ViewData["Title"] = "Chat";
+}
+
+<h2>Chat con PDF: @Model.Chat.PdfTitle</h2>
+
+<div class="card mb-3">
+    <div class="card-body">
+        @foreach (var line in Model.Chat.Conversation?.Split('\n') ?? Array.Empty<string>())
+        {
+            if (!string.IsNullOrWhiteSpace(line))
+            {
+                <p>@line</p>
+            }
+        }
+    </div>
+</div>
+
+<form method="post">
+    <input type="hidden" name="id" value="@Model.Chat.Id" />
+    <div class="form-group">
+        <label for="message">Tu mensaje:</label>
+        <input type="text" name="message" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>
+
+<a href="/Chats" class="btn btn-secondary mt-3"> Chats anteriores</a>

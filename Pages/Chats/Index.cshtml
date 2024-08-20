@@ -1,0 +1,64 @@
+﻿@page "{SearchString?}"
+@model ChatPDFCom.Pages.Chats.IndexModel
+
+@{
+    ViewData["Title"] = "ChatPDF desde Razor";
+}
+
+<h1>Principal</h1>
+
+<p>
+    <a asp-page="Create">Crear nueva entrada (manual) </a>
+</p>
+
+<form method="get">
+    <p>
+        Buscar por título <input type="text" name="SearchString" value="@Model.SearchString" />
+        <input type="submit" value="Filtrar" />
+    </p>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Chat[0].PdfTitle)                
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chat[0].SourceId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chat[0].Conversation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chat[0].CreatedAt)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Chat) {
+        <tr>
+            <td>
+                <a asp-page="/Chats/Chat" asp-route-id="@item.Id">
+                    @Html.DisplayFor(modelItem => item.PdfTitle)
+                </a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SourceId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Conversation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Editar</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Detalles</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

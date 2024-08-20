@@ -1,0 +1,14 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Chat PDF ASP";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Bienvenido - Bem-Vindo - Welcome </h1>
+    <img src="~/images/buhonero.jpg" alt="Buhonero" style="width:300px;" />
+
+    <p> Esta página permite chatear con tus documentos PDF y resumirlos utilizando la API de ChatPDF</p>
+    <p> Para poder utilizar esta herramienta, necesitas tener una cuenta en <a href="chatpdf.com"> ChatPDF </a>, las cuentas gratis tienen un límite de 2 PDFs diarios desde la web, pero usando la API tenemos 5000 PDFs y hasta 500 mensajes diarios</p>
+    <p> <strong> Recuerda que la ApiKey va en el appsetings.json de este proyecto, y recuerda hacer las migraciones correspondientes para que EntityFramework cree la base de datos en local</strong></p>
+</div>

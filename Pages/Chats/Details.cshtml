@@ -1,0 +1,43 @@
+﻿@page
+@model ChatPDFCom.Pages.Chats.DetailsModel
+
+@{
+    ViewData["Title"] = "Detalles";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Chat</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.PdfTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.PdfTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.SourceId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.SourceId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.Conversation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.Conversation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.CreatedAt)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Chat.Id">Editar</a> |
+    <a asp-page="./Index">Volver al listado</a>
+</div>

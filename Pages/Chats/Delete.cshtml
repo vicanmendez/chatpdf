@@ -1,0 +1,46 @@
+﻿@page
+@model ChatPDFCom.Pages.Chats.DeleteModel
+
+@{
+    ViewData["Title"] = "Eliminar";
+}
+
+<h1>Eliminar</h1>
+
+<h3>Seguro/a que lo quieres borrar?</h3>
+<div>
+    <h4>Chat</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.PdfTitle)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.PdfTitle)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.SourceId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.SourceId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.Conversation)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.Conversation)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Chat.CreatedAt)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Chat.CreatedAt)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Chat.Id" />
+        <input type="submit" value="Eliminar" class="btn btn-danger" /> |
+        <a asp-page="./Index">Volver al listado</a>
+    </form>
+</div>
